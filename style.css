@@ -514,3 +514,65 @@ body {
     transform: scale(1.05);
     box-shadow: 0 10px 30px rgba(255, 138, 91, 0.2);
 }
+
+/* ==========================================
+    AJUSTES DE RESPONSIVIDADE (MOBILE)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Ajustes Gerais */
+    .section { padding: 60px 5%; }
+    
+    /* Navbar Mobile */
+    .navbar { padding: 0 5%; height: 70px; }
+    .nav-links { gap: 15px; }
+    .nav-links a { font-size: 0.85rem; }
+    .logo-img { height: 45px; }
+
+    /* Hero Section Mobile */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 5% 60px;
+        min-height: auto;
+    }
+    .hero-content h1 {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+        line-height: 1.1;
+    }
+    .mascote-float {
+        margin-top: 40px;
+        order: 2;
+    }
+    .mascote-float img {
+        max-width: 280px;
+    }
+
+    /* Sabores Grid Mobile */
+    .flavors-section { padding: 80px 5%; }
+    .section-title { font-size: 2.2rem; }
+    .grid-container {
+        grid-template-columns: 1fr; /* Uma coluna no mobile */
+        gap: 30px;
+    }
+    .card { padding: 40px 20px; }
+
+    /* CR7 Section Mobile */
+    .ad-section { padding: 60px 5%; }
+    .ad-container { gap: 30px; }
+    .ad-content h2 { font-size: 2rem; }
+    .ad-content p { font-size: 1rem; }
+
+    /* Vídeo Mobile */
+    .ad-video-container {
+        height: 300px !important; /* Altura fixa menor para mobile */
+    }
+    .ad-video-container div h2 {
+        font-size: 1.8rem !important;
+    }
+
+    /* Modais Mobile */
+    .modal-content {
+        width: 95%;
+        padding: 40px 20px !important;
+    }
+}
