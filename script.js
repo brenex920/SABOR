@@ -37,6 +37,7 @@ gsap.utils.toArray(".section").forEach(sec => {
         duration: 1
     });
 });
+
 // A arara se move levemente conforme o mouse se mexe
 document.addEventListener("mousemove", (e) => {
     const x = (window.innerWidth / 2 - e.pageX) / 30;
@@ -63,7 +64,6 @@ gsap.from(".card-img img", {
     stagger: 0.2,
     ease: "back.out(1.7)"
 });
-gsap.registerPlugin(ScrollTrigger);
 
 // 1. Mudança dinâmica de cor no fundo do círculo do card
 document.querySelectorAll('.card').forEach(card => {
@@ -91,4 +91,66 @@ gsap.from(".fade-card", {
     stagger: 0.2,
     duration: 1.2,
     ease: "power4.out"
+});
+
+// --- INICIO DA LÓGICA DO MODAL DE DETALHES ---
+
+const infoSucos = {
+    "Laranja Real": {
+        desc: "Prensado a frio com laranjas selecionadas da fazenda. Rico em Vitamina C natural.",
+        ing: "100% Laranja Pêra e nada mais.",
+        img: "img/laranja.png",
+        tabela: ["Calorias: 90kcal", "Carboidratos: 20g", "Fibras: 2g", "Vitamina C: 120% VD"]
+    },
+    "Uva Integral": {
+        desc: "O poder dos antioxidantes da uva bordô em sua forma mais pura e intensa.",
+        ing: "Uva Bordô e Uva Isabel selecionadas.",
+        img: "img/uva.png",
+        tabela: ["Calorias: 120kcal", "Carboidratos: 28g", "Resveratrol: Alto", "Ferro: 10% VD"]
+    },
+    "Melancia Fresh": {
+        desc: "Hidratação extrema com um toque refrescante. Ideal para o pós-treino.",
+        ing: "Melancia madura e um toque de hortelã.",
+        img: "img/melancia.png",
+        tabela: ["Calorias: 60kcal", "Carboidratos: 15g", "Lycopeno: Alto", "Potássio: 150mg"]
+    }
+};
+
+const modal = document.getElementById('modal-detalhes');
+const btnFechar = document.getElementById('fechar-modal');
+
+// Abrir o modal ao clicar em Detalhes
+document.querySelectorAll('.btn-card').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Evita conflitos com o hover do card
+        const nomeSuco = btn.parentElement.querySelector('h3').innerText;
+        const dados = infoSucos[nomeSuco];
+
+        if(dados) {
+            document.getElementById('suco-nome-modal').innerText = nomeSuco;
+            document.getElementById('suco-desc-modal').innerText = dados.desc;
+            document.getElementById('suco-ingredientes').innerText = dados.ing;
+            document.getElementById('suco-img-modal').src = dados.img;
+
+            const tabelaDiv = document.getElementById('suco-tabela');
+            tabelaDiv.innerHTML = dados.tabela.map(item => `<span>• ${item}</span>`).join('');
+
+            modal.style.display = 'flex';
+            gsap.to(modal, { opacity: 1, duration: 0.3, pointerEvents: 'auto' });
+        }
+    });
+});
+
+// Fechar modal
+if(btnFechar) {
+    btnFechar.onclick = () => {
+        gsap.to(modal, { opacity: 0, duration: 0.3, pointerEvents: 'none', onComplete: () => modal.style.display = 'none' });
+    };
+}
+
+// Fechar ao clicar fora do conteúdo
+window.addEventListener('click', (e) => {
+    if (e.target == modal) {
+        gsap.to(modal, { opacity: 0, duration: 0.3, pointerEvents: 'none', onComplete: () => modal.style.display = 'none' });
+    }
 });

@@ -1,3 +1,6 @@
+/* ==========================================
+    VARIÁVEIS E RESET
+   ========================================== */
 :root {
     --primary: #2d4a22;
     --accent: #ff8a5b;
@@ -37,7 +40,9 @@ body {
     .cursor { display: block; }
 }
 
-/* NAVBAR */
+/* ==========================================
+    NAVBAR
+   ========================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -98,7 +103,9 @@ body {
     color: var(--accent);
 }
 
-/* HERO */
+/* ==========================================
+    HERO SECTION
+   ========================================== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -148,7 +155,9 @@ body {
     animation: pulse-orange 2s infinite;
 }
 
-/* SEÇÃO SABORES E GRID */
+/* ==========================================
+    SEÇÃO SABORES E GRID
+   ========================================== */
 .flavors-section {
     padding: 120px 8%;
     background-color: #fbf9f8;
@@ -271,7 +280,7 @@ body {
 .card:hover .btn-card { background: var(--accent); }
 
 /* ==========================================
-   NOVA SEÇÃO: PUBLICIDADE (CR7) 
+    PUBLICIDADE (CR7) 
    ========================================== */
 .ad-section {
     padding: 120px 8%;
@@ -341,7 +350,6 @@ body {
     color: var(--primary);
 }
 
-/* --- RESPONSIVIDADE AD SECTION --- */
 @media (max-width: 992px) {
     .ad-container {
         flex-direction: column;
@@ -355,7 +363,34 @@ body {
 }
 
 /* ==========================================
-   EQUIPE
+    PROPAGANDA EM VÍDEO
+   ========================================== */
+.ad-video-section {
+    padding: 60px 8% 100px;
+}
+
+.ad-video-container {
+    height: auto !important;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #000;
+    border: none !important;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+}
+
+.ad-video-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain !important;
+}
+
+.ad-video-container .highlight {
+    color: var(--accent);
+}
+
+/* ==========================================
+    EQUIPE
    ========================================== */
 .membro-img-wrapper {
     width: 150px;
@@ -377,28 +412,25 @@ body {
     transform: scale(1.1);
 }
 
-/* ANIMAÇÕES */
+/* ==========================================
+    ANIMAÇÕES E GERAIS
+   ========================================== */
 @keyframes pulse-orange {
     0% { box-shadow: 0 0 0 0 rgba(255, 138, 91, 0.7); }
     70% { box-shadow: 0 0 0 15px rgba(255, 138, 91, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 138, 91, 0); }
 }
 
-/* SEÇÃO GERAL */
 .section { padding: 100px 8%; text-align: center; }
 
-/* MASCOTE */
 .mascote-float img {
     max-width: 400px;
     height: auto;
 }
 
-
 /* ==========================================
-   PÁGINA DE VOTAÇÃO (ESTILOS EXCLUSIVOS)
+    VOTAÇÃO E MODAIS
    ========================================== */
-
-/* Input de Nome Customizado */
 .nome-input-wrapper input {
     background: var(--white);
     color: var(--text-dark);
@@ -412,7 +444,6 @@ body {
     box-shadow: 0 10px 25px rgba(255, 138, 91, 0.2);
 }
 
-/* Ajustes nos cards de voto */
 .vote-card {
     text-align: center;
     padding: 40px !important;
@@ -441,21 +472,16 @@ body {
     transition: width 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }
 
-/* MODAL DE SUCESSO (GLASSMORPHISM) */
 .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(45, 74, 34, 0.4); 
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    animation: modalFadeIn 0.4s ease forwards;
 }
 
 .modal-content {
@@ -466,31 +492,7 @@ body {
     background: rgba(255, 255, 255, 0.9) !important;
     border: 1px solid var(--white);
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
-}
-
-.icon-check {
-    font-size: 4.5rem;
-    margin-bottom: 20px;
-    display: block;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
-}
-
-#mensagemSucesso {
-    color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-#detalheVoto {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-/* Animações do Modal */
-@keyframes modalFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 @keyframes scaleUp {
@@ -498,27 +500,6 @@ body {
     to { transform: scale(1); opacity: 1; }
 }
 
-.modal-content {
-    animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-/* Estado de Erro no Input */
-.input-error {
-    border-color: #ff4d4d !important;
-    animation: shake 0.4s ease;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
-/* ==========================================
-   ELEMENTOS DINÂMICOS (TIMER E LIVE)
-   ========================================== */
-
-/* Estilo de piscada para a Label Live */
 @keyframes blink {
     0% { opacity: 1; }
     50% { opacity: 0.3; }
@@ -529,22 +510,7 @@ body {
     animation: blink 1.5s infinite;
 }
 
-/* Estilo para o Container do Timer */
-#timer-container {
-    transition: all 0.3s ease;
-}
-
 #timer-container:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 30px rgba(255, 138, 91, 0.2);
-}
-
-/* Ajuste fino dos contadores nos cards */
-.vote-card h3 {
-    margin-top: 10px;
-}
-
-.vote-card span[id^="perc-"] {
-    font-size: 1.2rem;
-    letter-spacing: 1px;
 }
