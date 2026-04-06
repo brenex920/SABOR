@@ -25,39 +25,75 @@
         <section id="votacao" class="section">
             <div class="section-header">
                 <h2 class="section-title">Escolha o Próximo <span class="highlight">Sabor</span></h2>
+                
+                <div id="timer-container" class="card" style="display: inline-flex; gap: 20px; padding: 15px 30px; margin: 25px 0; border: 1px solid var(--accent); backdrop-filter: blur(10px);">
+                    <div style="text-align: center;">
+                        <span id="timer-hours" style="font-weight: 900; font-size: 1.5rem; color: var(--primary);">24</span>
+                        <p style="font-size: 0.6rem; text-transform: uppercase; font-weight: 700;">Horas</p>
+                    </div>
+                    <span style="font-weight: 900; font-size: 1.5rem;">:</span>
+                    <div style="text-align: center;">
+                        <span id="timer-minutes" style="font-weight: 900; font-size: 1.5rem; color: var(--primary);">00</span>
+                        <p style="font-size: 0.6rem; text-transform: uppercase; font-weight: 700;">Minutos</p>
+                    </div>
+                    <span style="font-weight: 900; font-size: 1.5rem;">:</span>
+                    <div style="text-align: center;">
+                        <span id="timer-seconds" style="font-weight: 900; font-size: 1.5rem; color: var(--accent);">00</span>
+                        <p style="font-size: 0.6rem; text-transform: uppercase; font-weight: 700;">Segundos</p>
+                    </div>
+                </div>
+
                 <p>Digite seu nome e ajude a decidir nossa próxima receita premium.</p>
                 
-                <div class="nome-input-wrapper" style="margin-top: 30px;">
-                    <input type="text" id="nomeUsuario" placeholder="Seu nome completo" class="card" style="padding: 15px 25px; border-radius: 50px; width: 320px; outline: none; text-align: center; font-size: 1rem;">
+                <div class="nome-input-wrapper" style="margin-top: 20px;">
+                    <input type="text" id="nomeUsuario" placeholder="Digite Seu Nome" class="card" style="padding: 15px 25px; border-radius: 50px; width: 320px; outline: none; text-align: center; font-size: 1rem;">
                 </div>
             </div>
 
             <div id="container-votacao">
                 <div class="grid-container"> 
-                    <div class="card vote-card" onclick="processarVoto('Abacaxi com Hortelã')">
-                        <div class="vote-icon">🍍</div>
+                    <div class="card vote-card" onclick="processarVoto('Abacaxi com Hortelã', 0)">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div class="vote-icon" style="font-size: 3rem;">🍍</div>
+                            <span class="live-label" style="background: #ff4d4d; color: white; font-size: 0.6rem; padding: 4px 10px; border-radius: 20px; font-weight: 900; animation: blink 1.5s infinite;">LIVE</span>
+                        </div>
                         <h3>Abacaxi & Hortelã</h3>
-                        <p>Refrescância tropical com toque herbal.</p>
-                        <div class="vote-bar" data-percent="45%">
-                            <span style="width: 45%;"></span>
+                        <div style="display: flex; justify-content: space-between; margin-top: 20px; font-weight: 700;">
+                            <span id="votos-0" style="font-size: 0.9rem; opacity: 0.7;">1.450 votos</span>
+                            <span id="perc-0" style="color: var(--accent);">45%</span>
+                        </div>
+                        <div class="vote-bar">
+                            <span id="bar-0" style="width: 45%; display: block; height: 100%; background: var(--accent); transition: width 1s ease;"></span>
                         </div>
                     </div>
 
-                    <div class="card vote-card" onclick="processarVoto('Frutas Vermelhas')">
-                        <div class="vote-icon">🍓</div>
+                    <div class="card vote-card" onclick="processarVoto('Frutas Vermelhas', 1)">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div class="vote-icon" style="font-size: 3rem;">🍓</div>
+                            <span class="live-label" style="background: #ff4d4d; color: white; font-size: 0.6rem; padding: 4px 10px; border-radius: 20px; font-weight: 900; animation: blink 1.5s infinite;">LIVE</span>
+                        </div>
                         <h3>Frutas Vermelhas</h3>
-                        <p>O poder antioxidante do morango e amora.</p>
-                        <div class="vote-bar" data-percent="30%">
-                            <span style="width: 30%;"></span>
+                        <div style="display: flex; justify-content: space-between; margin-top: 20px; font-weight: 700;">
+                            <span id="votos-1" style="font-size: 0.9rem; opacity: 0.7;">960 votos</span>
+                            <span id="perc-1" style="color: var(--accent);">30%</span>
+                        </div>
+                        <div class="vote-bar">
+                            <span id="bar-1" style="width: 30%; display: block; height: 100%; background: var(--accent); transition: width 1s ease;"></span>
                         </div>
                     </div>
 
-                    <div class="card vote-card" onclick="processarVoto('Manga com Gengibre')">
-                        <div class="vote-icon">🥭</div>
+                    <div class="card vote-card" onclick="processarVoto('Manga com Gengibre', 2)">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div class="vote-icon" style="font-size: 3rem;">🥭</div>
+                            <span class="live-label" style="background: #ff4d4d; color: white; font-size: 0.6rem; padding: 4px 10px; border-radius: 20px; font-weight: 900; animation: blink 1.5s infinite;">LIVE</span>
+                        </div>
                         <h3>Manga & Gengibre</h3>
-                        <p>Energia doce com uma pitada picante.</p>
-                        <div class="vote-bar" data-percent="25%">
-                            <span style="width: 25%;"></span>
+                        <div style="display: flex; justify-content: space-between; margin-top: 20px; font-weight: 700;">
+                            <span id="votos-2" style="font-size: 0.9rem; opacity: 0.7;">790 votos</span>
+                            <span id="perc-2" style="color: var(--accent);">25%</span>
+                        </div>
+                        <div class="vote-bar">
+                            <span id="bar-2" style="width: 25%; display: block; height: 100%; background: var(--accent); transition: width 1s ease;"></span>
                         </div>
                     </div>
                 </div>
@@ -85,46 +121,102 @@
     </main>
 
     <script>
-        const votacaoAtiva = false; 
+        // --- CONFIGURAÇÃO INICIAL ---
+        let votacaoAtiva = true; 
+        let votos = [1450, 960, 790]; // Abacaxi, Frutas, Manga
 
         window.onload = function() {
+            atualizarInterface();
+            iniciarTimer(86400); // 24 horas
+            simularEntradaDeVotos();
+
             const containerVotos = document.getElementById('container-votacao');
             const containerSemVotos = document.getElementById('sem-votacao');
 
-            // Lógica do IF
-            if (votacaoAtiva) {
-                containerVotos.style.display = 'block';
-                containerSemVotos.style.display = 'none';
-            } else {
+            if (!votacaoAtiva) {
                 containerVotos.style.display = 'none';
                 containerSemVotos.style.display = 'block';
             }
         };
 
-        function processarVoto(sabor) {
+        // --- ATUALIZAÇÃO EM TEMPO REAL ---
+        function atualizarInterface() {
+            let totalVotos = votos.reduce((a, b) => a + b, 0);
+            
+            votos.forEach((qtd, index) => {
+                let percentual = Math.round((qtd / totalVotos) * 100);
+                document.getElementById(`votos-${index}`).innerText = qtd.toLocaleString() + " votos";
+                document.getElementById(`perc-${index}`).innerText = percentual + "%";
+                document.getElementById(`bar-${index}`).style.width = percentual + "%";
+            });
+        }
+
+        // --- TIMER ---
+        function iniciarTimer(segundos) {
+            const timerObj = setInterval(() => {
+                segundos--;
+                if (segundos <= 0) {
+                    clearInterval(timerObj);
+                    votacaoAtiva = false;
+                    location.reload();
+                }
+
+                let h = Math.floor(segundos / 3600);
+                let m = Math.floor((segundos % 3600) / 60);
+                let s = segundos % 60;
+
+                document.getElementById('timer-hours').innerText = h.toString().padStart(2, '0');
+                document.getElementById('timer-minutes').innerText = m.toString().padStart(2, '0');
+                document.getElementById('timer-seconds').innerText = s.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        // --- SIMULAÇÃO DE VOTOS ---
+        function simularEntradaDeVotos() {
+            setInterval(() => {
+                if (votacaoAtiva) {
+                    let indexAleatorio = Math.floor(Math.random() * 3);
+                    votos[indexAleatorio] += Math.floor(Math.random() * 2); 
+                    atualizarInterface();
+                }
+            }, 4000); // Novos votos "entram" a cada 4 segundos
+        }
+
+        // --- PROCESSAR VOTO DO USUÁRIO ---
+        function processarVoto(sabor, index) {
             const inputNome = document.getElementById('nomeUsuario');
             const nome = inputNome.value.trim();
 
             if (nome === "") {
-                // Efeito de erro visual
-                inputNome.style.borderColor = "var(--accent)";
-                inputNome.placeholder = "DIGITE SEU NOME PARA VOTAR!";
+                inputNome.style.borderColor = "#ff4d4d";
+                inputNome.placeholder = "DIGITE SEU NOME!";
                 inputNome.focus();
                 return;
             }
 
-            // Preenche o Modal
-            document.getElementById('mensagemSucesso').innerText = `Sensacional, ${nome}!`;
-            document.getElementById('detalheVoto').innerHTML = `Seu voto para <strong>${sabor}</strong> foi computado.<br>Obrigado por construir a SABOR conosco!`;
+            // Soma o voto
+            votos[index]++;
+            atualizarInterface();
 
-            // Abre o Modal
+            // Abre Modal
+            document.getElementById('mensagemSucesso').innerText = `Sensacional, ${nome}!`;
+            document.getElementById('detalheVoto').innerHTML = `Você votou em <strong>${sabor}</strong>.<br>Agora ele tem ${votos[index].toLocaleString()} votos!`;
             document.getElementById('modalSucesso').style.display = 'flex';
         }
 
         function fecharModal() {
             document.getElementById('modalSucesso').style.display = 'none';
-            document.getElementById('nomeUsuario').value = ""; // Reseta o nome
+            document.getElementById('nomeUsuario').value = "";
         }
     </script>
+
+    <style>
+        /* Estilo de piscada para a Label Live */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+    </style>
 </body>
 </html>

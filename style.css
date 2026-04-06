@@ -306,7 +306,7 @@ body {
 
 .ad-content {
     flex: 1;
-    padding: 50px !important; /* Sobrescreve o padding do card padrão se necessário */
+    padding: 50px !important; 
     text-align: left;
     border-left: 5px solid var(--accent);
 }
@@ -448,7 +448,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(45, 74, 34, 0.4); /* Overlay com tom da marca */
+    background: rgba(45, 74, 34, 0.4); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
@@ -512,4 +512,39 @@ body {
     0%, 100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
+}
+
+/* ==========================================
+   ELEMENTOS DINÂMICOS (TIMER E LIVE)
+   ========================================== */
+
+/* Estilo de piscada para a Label Live */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.live-label {
+    animation: blink 1.5s infinite;
+}
+
+/* Estilo para o Container do Timer */
+#timer-container {
+    transition: all 0.3s ease;
+}
+
+#timer-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 138, 91, 0.2);
+}
+
+/* Ajuste fino dos contadores nos cards */
+.vote-card h3 {
+    margin-top: 10px;
+}
+
+.vote-card span[id^="perc-"] {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
 }
