@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABOR | Experiência Natural Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="img/logo.png" alt="SABOR" class="logo-img">
+        </div>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#sabores">Sabores</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#equipe">Equipe</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="reveal title-small">Não é só suco.</h2>
+                <h1 class="reveal"> 
+                    O verdadeiro <br> 
+                    <img src="img/logo.png" alt="SABOR" class="logo-inline"> da natureza 
+                </h1>
+                <p class="reveal">Sucos prensados a frio, 100% naturais e vivos.</p>
+                <div class="hero-btns reveal">
+                    <a href="#sabores" class="btn-primary">Explorar Menu</a>
+                </div>
+            </div>
+            <div class="mascote-float">
+                <img src="img/mascote.png" alt="Mascote SABOR" id="mascote">
+            </div>
+        </section>
+
+        <section id="sabores" class="section flavors-section">
+            <div class="section-header">
+                <h2 class="section-title">Nossa Seleção <span class="highlight">Premium</span></h2>
+            </div>
+            
+            <div class="grid-container">
+                <div class="card" data-color="#FF8A5B">
+                    <div class="card-bg-circle"></div>
+                    <div class="card-img"><img src="img/laranja.png" alt="Laranja"></div>
+                    <div class="card-info">
+                        <h3>Laranja Real</h3>
+                        <button class="btn-card">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="card card-uva" data-color="#5D2B5F">
+                    <div class="card-bg-circle"></div>
+                    <div class="card-img"><img src="img/uva.png" alt="Uva"></div>
+                    <div class="card-info">
+                        <h3>Uva Integral</h3>
+                        <button class="btn-card">Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="card" data-color="#D8E04F">
+                    <div class="card-bg-circle"></div>
+                    <div class="card-img"><img src="img/melancia.png" alt="Melancia"></div>
+                    <div class="card-info">
+                        <h3>Melancia Fresh</h3>
+                        <button class="btn-card">Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publicidade" class="section ad-section">
+            <div class="ad-container">
+                <div class="ad-image">
+                    <img src="img/cr7.png" alt="Cristiano Ronaldo consumindo SABOR">
+                </div>
+                <div class="ad-content card">
+                    <span class="tag">Embaixador Global</span>
+                    <h2>A escolha de quem busca a <span class="highlight">perfeição.</span></h2>
+                    <p>"Para manter meu corpo em alto rendimento, eu escolho o que vem puro da terra. SABOR não é apenas uma bebida, é combustível natural."</p>
+                    <div class="signature">— Cristiano Ronaldo</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipe" class="section">
+            <h2 class="section-title">Quem Faz a <span class="highlight">Magia</span></h2>
+            <p style="margin-bottom: 50px; color: #666;">Especialistas apaixonados por natureza e saúde.</p>
+            
+            <div class="grid-container">
+                <div class="card card-membro">
+                    <div class="membro-img-wrapper">
+                        <img src="img/bargirl.png" alt="Yasmin" class="membro-img">
+                        <div class="membro-overlay">
+                            <span class="view-profile">Ver Especialidade</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="membro-header">
+                            <h3>Yasmin</h3>
+                            <span class="verified-badge">✔</span>
+                        </div>
+                        <p class="membro-cargo">Mixologista Chefe</p>
+                       
+                    </div>
+                </div>
+                
+                <div class="card card-membro">
+                    <div class="membro-img-wrapper">
+                        <img src="img/barman.png" alt="Josué" class="membro-img">
+                        <div class="membro-overlay">
+                            <span class="view-profile">Ver Especialidade</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="membro-header">
+                            <h3>Josué</h3>
+                            <span class="verified-badge">✔</span>
+                        </div>
+                        <p class="membro-cargo">Bartender Senior</p>
+                        <div class="membro-social">
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="section">
+            <div class="flex-container">
+                <div class="text-box">
+                    <h2>Nossa Essência</h2>
+                    <p>Nascemos da vontade de trazer o frescor da floresta direto para o seu copo. Cada garrafa da SABOR é um tributo à biodiversidade brasileira.</p>
+                </div>
+            </div>
+        </section>
+      
+    </main>
+</body>
+</html>
